@@ -4,9 +4,20 @@
 }
 
 .logo {
-  margin: 79.55px 0 65px 2px;
+  margin: 4.971875rem 0 4.0625rem 0.125rem;
 }
 
 .posts {
-  
+  a {
+    display: block;
+    margin-bottom: 3rem;
+
+    h1 {
+      font-size: 1.75rem;
+    }
+  }
+
+  a:last-child {
+    margin-bottom: 64px;
+  }
 }
