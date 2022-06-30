@@ -1,6 +1,8 @@
 import { format } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 import { GetStaticProps } from 'next';
+import Head from 'next/head';
+import Link from 'next/link';
 
 import { getPrismicClient } from '../services/prismic';
 
@@ -26,19 +28,38 @@ interface HomeProps {
   postsPagination: PostPagination;
 }
 
-export default function Home({ postsPagination }: HomeProps): JSX.Element {
+export default function Home({
+  postsPagination: { next_page, results },
+}: HomeProps): JSX.Element {
   return (
     <>
-      <h1>Oi</h1>
+      <Head>
+        <title>Posts | spacetraveling</title>
+      </Head>
+      <main className={styles.contentContainer}>
+        <img className={styles.logo} src="/images/Logo.svg" alt="logo" />
+        <div className={styles.posts}>
+          {results.map(post => (
+            <Link key={post.uid} href={`/posts/${post.uid}`}>
+              <a>
+                <h1>{post.data.title}</h1>
+                <span>{post.data.subtitle}</span>
+                <div>
+                  <p>{post.first_publication_date}</p>
+                  <p>{post.data.author}</p>
+                </div>
+              </a>
+            </Link>
+          ))}
+        </div>
+      </main>
     </>
   );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
   const prismic = getPrismicClient({});
-  const postsResponse = await prismic.getByType('posts', {
-    pageSize: 1,
-  });
+  const postsResponse = await prismic.getByType('posts');
 
   const results = postsResponse.results.map(post => {
     return {
