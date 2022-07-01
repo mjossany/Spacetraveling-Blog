@@ -7,7 +7,12 @@
 :root {
   --white: #FFFFFF;
 
+  --gray-50: #D9D9D9;
+  --gray-80: #D7D7D7;
+  --gray-150: #BBBBBB;
   --gray-900: #1A1D23;
+
+  --pink: #FF57B2;
 }
 
 @media (max-width: 1080px) {
@@ -32,6 +37,7 @@ body, input, textarea, select, button {
 }
 
 button {
+  all: unset;
   cursor: pointer;
 }
 

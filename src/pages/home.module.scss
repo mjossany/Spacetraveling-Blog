@@ -1,23 +1,70 @@
-.contentContainer {
-  max-width: 700px;
-  margin: 0 auto;
-}
-
 .logo {
-  margin: 4.971875rem 0 4.0625rem 0.125rem;
+  margin: 4.971875rem 0 4.0625rem 23.25rem;
 }
 
 .posts {
+  max-width: 700px;
+  margin-left: 23.125rem;
+
   a {
     display: block;
     margin-bottom: 3rem;
+  }
 
-    h1 {
-      font-size: 1.75rem;
+  h1 {
+    font-size: 1.75rem;
+    line-height: 2.118125rem;
+    font-weight: 700;
+    letter-spacing: 0.03125rem;
+    color: var(--gray-50);
+  }
+
+  span {
+    color: var(--gray-80);
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 1.36125rem;
+    display: inline-block;
+    margin: 1rem 0;
+  }
+
+  .postInfo {
+    display: flex;
+    color: var(--gray-150);
+
+    p {
+      height: 1.5rem;
+      line-height: 1.5rem;
+      text-align: center;
+      vertical-align: middle;
+      display: table-cell;
+    }
+
+    p:nth-child(2) {
+      margin-left: 1.5rem;
+    }
+
+    p:nth-child(1)::before {
+      content: url('../../public/images/calendar.svg');
+      vertical-align: middle;
+      margin-right: 0.5rem;
+    }
+
+    p:nth-child(2)::before {
+      content: url('../../public/images/user.svg');
+      vertical-align: middle;
+      margin-right: 0.5rem;
     }
   }
-
-  a:last-child {
-    margin-bottom: 64px;
-  }
 }
+
+.loadPostsButton {
+  color: var(--pink);
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.375rem;
+  display: block;
+  margin-left: 23rem;
+  margin-top: 4rem;
+}
+

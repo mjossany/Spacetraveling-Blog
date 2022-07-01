@@ -36,7 +36,7 @@ export default function Home({
       <Head>
         <title>Posts | spacetraveling</title>
       </Head>
-      <main className={styles.contentContainer}>
+      <main className={commonStyles.pageContent}>
         <img className={styles.logo} src="/images/Logo.svg" alt="logo" />
         <div className={styles.posts}>
           {results.map(post => (
@@ -44,7 +44,7 @@ export default function Home({
               <a>
                 <h1>{post.data.title}</h1>
                 <span>{post.data.subtitle}</span>
-                <div>
+                <div className={styles.postInfo}>
                   <p>{post.first_publication_date}</p>
                   <p>{post.data.author}</p>
                 </div>
@@ -52,6 +52,13 @@ export default function Home({
             </Link>
           ))}
         </div>
+        {next_page ? (
+          <button type="button" className={styles.loadPostsButton}>
+            Carregar mais posts
+          </button>
+        ) : (
+          ''
+        )}
       </main>
     </>
   );
@@ -59,7 +66,9 @@ export default function Home({
 
 export const getStaticProps: GetStaticProps = async () => {
   const prismic = getPrismicClient({});
-  const postsResponse = await prismic.getByType('posts');
+  const postsResponse = await prismic.getByType('posts', {
+    pageSize: 1,
+  });
 
   const results = postsResponse.results.map(post => {
     return {
