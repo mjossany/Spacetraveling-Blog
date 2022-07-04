@@ -1,1 +1,57 @@
-// TODO
+.postContainer {
+  margin: 80px 370px 0 349px;
+  width: 721px;
+
+  h1 {
+    width: 700px;
+    height: 58px;
+    color: var(--gray-20);
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 58.09px;
+    letter-spacing: -0.5px;
+  }
+
+  .postInfo {
+    display: flex;
+    margin-top: 24px;
+
+    p {
+      color: var(--gray-150);
+      & + p {
+        margin-left: 24px;
+      }
+    }
+
+    p:nth-child(1)::before {
+      content: url('../../../public/images/calendar.svg');
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    p:nth-child(2)::before {
+      content: url('../../../public/images/user.svg');
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    p:nth-child(3)::before {
+      content: url('../../../public/images/clock.svg');
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+  }
+
+  .postContent {
+    h1 {
+      font-weight: 700;
+      font-size: 2.25rem;
+      line-height: 50.4px;
+      margin-top: 64px;
+    }
+  }
+}
+
+
+
+
