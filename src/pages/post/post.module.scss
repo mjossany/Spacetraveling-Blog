@@ -60,6 +60,18 @@
 
         color: var(--gray-80);
       }
+
+      ul {
+        color: var(--gray-80);
+
+        li {
+          margin-top: 20px;
+        }
+      }
+
+      a {
+        color: var(--pink);
+      }
     }
   }
 }

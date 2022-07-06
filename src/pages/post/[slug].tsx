@@ -2,7 +2,7 @@ import { format } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
-import * as prismicHelpers from '@prismicio/helpers';
+import { RichText } from 'prismic-dom';
 import Header from '../../components/Header';
 
 import { getPrismicClient } from '../../services/prismic';
@@ -75,9 +75,11 @@ export default function Post({ post }: PostProps): JSX.Element {
             {post.data.content.map(content => (
               <div className={styles.postContent} key={content.heading}>
                 <h1>{content.heading}</h1>
-                {content.body.map(body => (
-                  <p key={body.text}>{body.text}</p>
-                ))}
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: RichText.asHtml(content.body),
+                  }}
+                />
               </div>
             ))}
           </div>
