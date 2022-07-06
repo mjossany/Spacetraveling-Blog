@@ -1,9 +1,8 @@
-import { PrismicRichText } from '@prismicio/react';
 import { format } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
-import { RichText } from 'prismic-dom';
+import * as prismicHelpers from '@prismicio/helpers';
 import Header from '../../components/Header';
 
 import { getPrismicClient } from '../../services/prismic';
